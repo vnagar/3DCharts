@@ -7,6 +7,7 @@
 //
 
 import SceneKit
+import QuartzCore
 
 enum ChartType : Int {
     case Cylinder = 0, Cube, Pie
@@ -16,6 +17,8 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
     var chartType : ChartType = ChartType.Cylinder
     var scnView:SCNView!
     var scene:SCNScene!
+    var chartNode:SCNNode!
+    var cameraNode:SCNNode!
     let data = ExampleData()
     
     override init() {
@@ -40,6 +43,12 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         super.viewDidLoad()
         scnView = SCNView(frame:self.view.frame)
         self.view.addSubview(scnView)
+        layout(scnView) { scnView in
+            scnView.top == scnView.superview!.top
+            scnView.left == scnView.superview!.left
+            scnView.right == scnView.superview!.right
+            scnView.bottom == scnView.superview!.bottom
+        }
         
         scnView.delegate = self
         
@@ -47,7 +56,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         scene = SCNScene()
         
         // create and add a camera to the scene
-        let cameraNode = SCNNode()
+        cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         scene.rootNode.addChildNode(cameraNode)
         
@@ -81,24 +90,29 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         // configure the view
         scnView.backgroundColor = UIColor.blackColor()
         
+        //setup overlay
+        let overlayScene:OverlayScene = OverlayScene(size: scnView.bounds.size);
+        scnView.overlaySKScene = overlayScene;
+        overlayScene.cameraButtonHandler = handleCameraButtonPressed
+        
         showData()
 
 
     }
     
     func showData() {
-        var node = SCNNode()
+        chartNode = SCNNode()
         if(self.chartType == .Cylinder) {
-            node = createChart(self.chartType)
+            chartNode = createChart(self.chartType)
         } else if(self.chartType == .Cube) {
-            node = createChart(self.chartType)
+            chartNode = createChart(self.chartType)
         } else {
-            node = createPieChart()
+            chartNode = createPieChart()
         }
         
-        scene.rootNode.addChildNode(node)
+        scene.rootNode.addChildNode(chartNode)
         
-        node.rotation = SCNVector4(x: 1, y: 0, z: 0, w: Float(-M_PI_2))
+        chartNode.rotation = SCNVector4(x: 1, y: 0, z: 0, w: Float(-M_PI_2))
     }
     
 
@@ -193,7 +207,6 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
             node.geometry.firstMaterial.diffuse.contents = data.colorForIndexPath(row: i, column: j)
             aNode.addChildNode(node)
             
-            
         }
         
         return aNode
@@ -203,4 +216,47 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
 
     }
     
+    //Definition of closure
+    func handleCameraButtonPressed() {
+        turnCameraAroundNode(chartNode, radius: 70)
+    }
+    
+    func turnCameraAroundNode(node:SCNNode, radius:Float)
+    {
+        var animation = CAKeyframeAnimation(keyPath:"transform")
+        animation.duration = 15.0;
+        animation.fillMode = kCAFillModeForwards;
+        animation.removedOnCompletion = false;
+        
+        var animValues = [NSValue]()
+        for var index = 0; index <= 360; ++index {
+            let hAngle = Double(index) * M_PI / 180.0
+            let vAngle = Double(-45) * 0.25 * M_PI / 180.0
+            var val = NSValue(CATransform3D: transformationToRotateAroundPosition(node.position, radius:radius, horizontalAngle:Float(hAngle), verticalAngle:Float(vAngle)))
+            animValues.append(val)
+        }
+        
+        animation.values = animValues;
+        animation.timingFunction = CAMediaTimingFunction (name: kCAMediaTimingFunctionEaseInEaseOut);
+        cameraNode.addAnimation(animation, forKey:"animation");
+        
+    }
+    
+    func transformationToRotateAroundPosition(center:SCNVector3 ,radius:Float, horizontalAngle:Float, verticalAngle:Float) -> CATransform3D
+    {
+        var pos:SCNVector3 = SCNVector3Make(0, 0, 0)
+        pos.x = center.x + radius * cos(verticalAngle) * sin(horizontalAngle);
+        pos.y = cameraNode.position.y;
+        pos.z = center.z + radius * cos(verticalAngle) * cos(horizontalAngle);
+        
+        let rotX = CATransform3DMakeRotation(CGFloat(verticalAngle), 1, 0, 0);
+        let rotY = CATransform3DMakeRotation(CGFloat(horizontalAngle), 0, 1, 0);
+        let rotation = CATransform3DConcat(rotX, rotY);
+        
+        let translate = CATransform3DMakeTranslation(CGFloat(pos.x), CGFloat(pos.y), CGFloat(pos.z));
+        let transform = CATransform3DConcat(rotation,translate);
+        
+        return transform;
+    }
+
 }

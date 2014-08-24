@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C133B7A019AA396A00477582 /* OverlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C133B79F19AA396A00477582 /* OverlayScene.swift */; };
 		C143598A19A8DCA4000210D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C143598919A8DCA4000210D6 /* AppDelegate.swift */; };
 		C143598C19A8DCA4000210D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C143598B19A8DCA4000210D6 /* ViewController.swift */; };
 		C143598F19A8DCA4000210D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C143598D19A8DCA4000210D6 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C133B79F19AA396A00477582 /* OverlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayScene.swift; sourceTree = "<group>"; };
 		C143598419A8DCA4000210D6 /* 3DCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3DCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C143598819A8DCA4000210D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C143598919A8DCA4000210D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				C14359C819A8FCDE000210D6 /* ExampleData.swift */,
 				C14359C619A8F84B000210D6 /* SceneViewDataSource.swift */,
 				C14359C219A8E4C1000210D6 /* SceneViewController.swift */,
+				C133B79F19AA396A00477582 /* OverlayScene.swift */,
 				C143598919A8DCA4000210D6 /* AppDelegate.swift */,
 				C143598B19A8DCA4000210D6 /* ViewController.swift */,
 				C143598D19A8DCA4000210D6 /* Main.storyboard */,
@@ -284,6 +287,7 @@
 				C14359BA19A8DDD1000210D6 /* LayoutProxy.swift in Sources */,
 				C14359BF19A8DDD1000210D6 /* View.swift in Sources */,
 				C14359BE19A8DDD1000210D6 /* Size.swift in Sources */,
+				C133B7A019AA396A00477582 /* OverlayScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +475,7 @@
 				C14359A219A8DCA5000210D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C14359A319A8DCA5000210D6 /* Build configuration list for PBXNativeTarget "3DChartsTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +484,7 @@
 				C14359A519A8DCA5000210D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
