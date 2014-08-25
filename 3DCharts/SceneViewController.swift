@@ -85,7 +85,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         scnView.allowsCameraControl = true
         
         // show statistics such as fps and timing information
-        scnView.showsStatistics = true
+        //scnView.showsStatistics = true
         
         // configure the view
         scnView.backgroundColor = UIColor.blackColor()
@@ -96,7 +96,6 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         overlayScene.cameraButtonHandler = handleCameraButtonPressed
         
         showData()
-
 
     }
     
@@ -213,20 +212,21 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
     }
     
     func renderer(aRenderer: SCNSceneRenderer!, updateAtTime time: NSTimeInterval) {
-
     }
     
     //Definition of closure
     func handleCameraButtonPressed() {
+        scnView.pointOfView = cameraNode
+
         turnCameraAroundNode(chartNode, radius: 70)
     }
     
     func turnCameraAroundNode(node:SCNNode, radius:Float)
     {
         var animation = CAKeyframeAnimation(keyPath:"transform")
-        animation.duration = 15.0;
-        animation.fillMode = kCAFillModeForwards;
-        animation.removedOnCompletion = false;
+        animation.duration = 15.0
+        animation.fillMode = kCAFillModeForwards
+        animation.removedOnCompletion = false
         
         var animValues = [NSValue]()
         for var index = 0; index <= 360; ++index {
@@ -236,8 +236,8 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
             animValues.append(val)
         }
         
-        animation.values = animValues;
-        animation.timingFunction = CAMediaTimingFunction (name: kCAMediaTimingFunctionEaseInEaseOut);
+        animation.values = animValues
+        animation.timingFunction = CAMediaTimingFunction (name: kCAMediaTimingFunctionEaseInEaseOut)
         cameraNode.addAnimation(animation, forKey:"animation");
         
     }
@@ -245,18 +245,19 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
     func transformationToRotateAroundPosition(center:SCNVector3 ,radius:Float, horizontalAngle:Float, verticalAngle:Float) -> CATransform3D
     {
         var pos:SCNVector3 = SCNVector3Make(0, 0, 0)
-        pos.x = center.x + radius * cos(verticalAngle) * sin(horizontalAngle);
-        pos.y = cameraNode.position.y;
-        pos.z = center.z + radius * cos(verticalAngle) * cos(horizontalAngle);
+        pos.x = center.x + radius * cos(verticalAngle) * sin(horizontalAngle)
+        pos.y = cameraNode.position.y
+        pos.z = center.z + radius * cos(verticalAngle) * cos(horizontalAngle)
         
-        let rotX = CATransform3DMakeRotation(CGFloat(verticalAngle), 1, 0, 0);
-        let rotY = CATransform3DMakeRotation(CGFloat(horizontalAngle), 0, 1, 0);
-        let rotation = CATransform3DConcat(rotX, rotY);
+        let rotX = CATransform3DMakeRotation(CGFloat(verticalAngle), 1, 0, 0)
+        let rotY = CATransform3DMakeRotation(CGFloat(horizontalAngle), 0, 1, 0)
+        let rotation = CATransform3DConcat(rotX, rotY)
         
-        let translate = CATransform3DMakeTranslation(CGFloat(pos.x), CGFloat(pos.y), CGFloat(pos.z));
-        let transform = CATransform3DConcat(rotation,translate);
+        let translate = CATransform3DMakeTranslation(CGFloat(pos.x), CGFloat(pos.y), CGFloat(pos.z))
+        let transform = CATransform3DConcat(rotation,translate)
         
-        return transform;
+        return transform
     }
+
 
 }

@@ -13,6 +13,7 @@ protocol SceneViewDataSource {
     func numberOfColums() -> Int
     func legendForRow(row:Int) -> String
     func legendForColumn(column:Int) -> String
+    func maxValueForData() -> Float
     func valueForIndexPath(#row:Int, column:Int) -> Float
     func colorForIndexPath(#row:Int, column:Int) -> UIColor
 }
