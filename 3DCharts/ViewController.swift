@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Custom initialization
     }
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
     }
 
@@ -53,11 +53,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         pieChartSceneController = SceneViewController(type:ChartType.Pie)
     }
 
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chartTypes.count
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let CellIdentifier = "CellIdentifier"
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellIdentifier)
         
@@ -68,14 +69,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
 
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let sceneViewController = SceneViewController()
         if(indexPath.row == 0) {
-            self.navigationController.pushViewController(cylinderChartSceneController, animated:false)
+            self.navigationController?.pushViewController(cylinderChartSceneController, animated: false)
         } else if(indexPath.row == 1) {
-            self.navigationController.pushViewController(cubeChartSceneController, animated:false)
+            self.navigationController?.pushViewController(cubeChartSceneController, animated:false)
         } else {
-            self.navigationController.pushViewController(pieChartSceneController, animated:false)
+            self.navigationController?.pushViewController(pieChartSceneController, animated:false)
         }
     }
     

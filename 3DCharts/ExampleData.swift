@@ -51,7 +51,7 @@ class ExampleData : SceneViewDataSource {
         let val:Float = self.valueForIndexPath(row:row, column:column)
         let max:Float = 150.0
         let value:Float = Float(val/max)
-        let hue = 0.3 + row / 6.0
+        let hue = 0.3 + Float(row) / 6.0
         let sat = 0.2 + value/1.25
         
         let color = UIColor(hue: CGFloat(hue), saturation: CGFloat(sat), brightness: 1.0, alpha: 1.0)

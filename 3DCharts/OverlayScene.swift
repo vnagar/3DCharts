@@ -23,7 +23,7 @@ class OverlayScene : SKScene {
         setup()
     }
     
-    required init(coder aDecoder: NSCoder!) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
@@ -45,10 +45,10 @@ class OverlayScene : SKScene {
         cameraNode?.position = CGPointMake(self.frame.size.width * 0.85, self.frame.size.height*0.85)
     }
     
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
-        let touch:UITouch = touches.anyObject() as UITouch;
-        let location:CGPoint = touch.locationInNode(scene);
-        let node:SKNode = scene.nodeAtPoint(location)
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        let touch:UITouch = touches.anyObject() as UITouch
+        let location:CGPoint = touch.locationInNode(scene)
+        let node:SKNode = scene!.nodeAtPoint(location)
         if let name = node.name { // Check if node name is not nil
             // Call closure defined in SceneViewController
             if let handler = cameraButtonHandler {
@@ -57,11 +57,11 @@ class OverlayScene : SKScene {
         }
     }
     
-    override func touchesMoved(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         super.touchesMoved(touches, withEvent: event)
     }
     
-    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         super.touchesEnded(touches, withEvent:event)
     }
     
