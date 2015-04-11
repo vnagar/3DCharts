@@ -21,9 +21,6 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
     var cameraNode:SCNNode!
     let data = ExampleData()
     
-    override init() {
-        super.init()
-    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -35,7 +32,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
     }
 
     init(type:ChartType) {
-        super.init()
+        super.init(nibName:nil, bundle:nil)
         self.chartType = type
     }
     
@@ -213,7 +210,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         return aNode
     }
     
-    func renderer(aRenderer: SCNSceneRenderer!, updateAtTime time: NSTimeInterval) {
+    func renderer(aRenderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval) {
     }
     
     //Definition of closure

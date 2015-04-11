@@ -16,9 +16,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let chartTypes:[String] = ["Cylinder Charts", "Cube Charts", "Pie Charts"]
   
-    override init() {
-        super.init()
-    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -65,7 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         let cellText = chartTypes[indexPath.row]
-        cell.textLabel.text = cellText
+        cell.textLabel!.text = cellText
         return cell
     }
 
