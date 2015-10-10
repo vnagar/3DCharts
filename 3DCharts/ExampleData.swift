@@ -43,11 +43,11 @@ class ExampleData : SceneViewDataSource {
         return 150.0
     }
     
-    func valueForIndexPath(#row:Int, column:Int) -> Float {
+    func valueForIndexPath(row row:Int, column:Int) -> Float {
         return gValsRevenue[row * 12 + column]
     }
     
-    func colorForIndexPath(#row:Int, column:Int) -> SKColor {
+    func colorForIndexPath(row row:Int, column:Int) -> SKColor {
         let val:Float = self.valueForIndexPath(row:row, column:column)
         let max:Float = 150.0
         let value:Float = Float(val/max)

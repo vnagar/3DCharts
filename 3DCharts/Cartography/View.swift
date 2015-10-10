@@ -18,7 +18,7 @@ import Foundation
         }
 
         func car_setTranslatesAutoresizingMaskIntoConstraints(flag: Bool) {
-            self.setTranslatesAutoresizingMaskIntoConstraints(flag)
+            self.translatesAutoresizingMaskIntoConstraints = flag
         }
     }
 #else

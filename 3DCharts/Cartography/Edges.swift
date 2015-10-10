@@ -29,11 +29,11 @@ public enum Edges : Compound {
 }
 
 public func inset(edges: Edges, all: Float) -> Expression<Edges> {
-    return inset(edges, all, all, all, all)
+    return inset(edges, top: all, leading: all, bottom: all, trailing: all)
 }
 
 public func inset(edges: Edges, horizontal: Float, vertical: Float) -> Expression<Edges> {
-    return inset(edges, vertical, horizontal, vertical, horizontal)
+    return inset(edges, top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
 }
 
 public func inset(edges: Edges, top: Float, leading: Float, bottom: Float, trailing: Float) -> Expression<Edges> {

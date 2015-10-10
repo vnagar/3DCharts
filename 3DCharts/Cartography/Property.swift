@@ -20,7 +20,7 @@ protocol Property {
 func apply(from: Property, coefficients: Coefficients = Coefficients(), to: Property? = nil, relation: NSLayoutRelation = NSLayoutRelation.Equal) -> NSLayoutConstraint {
     from.view.car_setTranslatesAutoresizingMaskIntoConstraints(false)
 
-    let superview = commonSuperview(from.view, to?.view)
+    let superview = commonSuperview(from.view, b: to?.view)
 
     var toAttribute: NSLayoutAttribute! = NSLayoutAttribute.NotAnAttribute
 

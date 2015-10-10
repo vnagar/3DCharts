@@ -27,7 +27,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         // Custom initialization
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
     }
 
@@ -121,7 +121,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         let height = CGFloat(numRows)*gridSize
         let width = CGFloat(numColumns)*gridSize
         
-        var node = SCNNode()
+        let node = SCNNode()
         let base = SCNNode(geometry: SCNPlane(width: width, height: height))
         node.addChildNode(base)
         
@@ -136,8 +136,8 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
             let txt = SCNText(string: data.legendForRow(idx), extrusionDepth: 0.0)
             txt.font = UIFont(name: "MarkerFelt-Thin", size: 2.0)
             let txtNode = SCNNode(geometry: txt)
-            var posX = min.x - 10.0
-            var posY = min.y + Float(idx+1) * Float(gridSize)
+            let posX = min.x - 10.0
+            let posY = min.y + Float(idx+1) * Float(gridSize)
             txtNode.position = SCNVector3(x: posX, y: posY, z: 0.0)
             node.addChildNode(txtNode)
         }
@@ -146,8 +146,8 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
             let txt = SCNText(string: data.legendForColumn(idx), extrusionDepth: 0.0)
             txt.font = UIFont(name: "MarkerFelt-Thin", size: 2.0)
             let txtNode = SCNNode(geometry: txt)
-            var posX = min.x + Float(idx+1) * Float(gridSize)
-            var posY = min.y - 2.0
+            let posX = min.x + Float(idx+1) * Float(gridSize)
+            let posY = min.y - 2.0
             txtNode.position = SCNVector3(x: posX, y: posY, z: 0.0)
             txtNode.rotation = SCNVector4(x: 0, y: 0, z: 1, w: Float(-M_PI_2))
             node.addChildNode(txtNode)
@@ -163,8 +163,8 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
                     aNode = SCNNode(geometry: SCNBox(width: 1.0, height: CGFloat(val), length: 1.0, chamferRadius: 0))
                 }
             
-                var posX = min.x + Float(j) * Float(gridSize) + Float(gridSize/2)
-                var posY = min.y + Float(i) * Float(gridSize) + Float(gridSize/2)
+                let posX = min.x + Float(j) * Float(gridSize) + Float(gridSize/2)
+                let posY = min.y + Float(i) * Float(gridSize) + Float(gridSize/2)
                 aNode.position = SCNVector3(x: posX, y:posY , z: val/2)
                 aNode.rotation = SCNVector4(x: 1, y: 0, z: 0, w: Float(-M_PI_2))
                 aNode.geometry?.firstMaterial?.diffuse.contents = data.colorForIndexPath(row: i, column: j)
@@ -178,9 +178,9 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
     
     
     func createPieChart() -> SCNNode {
-        var aNode = SCNNode()
+        let aNode = SCNNode()
         var total:Float = 0.0
-        let numRows = data.numberOfRows()
+        //let numRows = data.numberOfRows()
         let numColumns = data.numberOfColums()
         
         let i = 0
@@ -193,15 +193,15 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         var startRad:Float = 0.0
         for (var j = 0; j < numColumns; j++) {
             let val = data.valueForIndexPath(row:i, column: j)
-            var pct = val*360.0/total
+            let pct = val*360.0/total
             startRad = Float(startDeg) * Float(M_PI) / Float(180.0)
-            var endDeg = startDeg + pct - 1.0
-            var endRad:Float = Float(endDeg) * Float(M_PI) / Float(180.0)
-            var circlePath = UIBezierPath()
+            let endDeg = startDeg + pct - 1.0
+            let endRad:Float = Float(endDeg) * Float(M_PI) / Float(180.0)
+            let circlePath = UIBezierPath()
             circlePath.moveToPoint(CGPointZero)
             circlePath.addArcWithCenter(CGPointZero, radius: 20.0, startAngle:CGFloat(startRad), endAngle: CGFloat(endRad), clockwise: true)
             startDeg = endDeg + 1
-            var node = SCNNode(geometry: SCNShape(path:circlePath, extrusionDepth: 5.0))
+            let node = SCNNode(geometry: SCNShape(path:circlePath, extrusionDepth: 5.0))
             node.geometry?.firstMaterial?.diffuse.contents = data.colorForIndexPath(row: i, column: j)
             aNode.addChildNode(node)
             
@@ -222,7 +222,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
     
     func turnCameraAroundNode(node:SCNNode, radius:Float)
     {
-        var animation = CAKeyframeAnimation(keyPath:"transform")
+        let animation = CAKeyframeAnimation(keyPath:"transform")
         animation.duration = 15.0
         animation.fillMode = kCAFillModeForwards
         animation.removedOnCompletion = false
@@ -231,7 +231,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         for var index = 0; index <= 360; ++index {
             let hAngle = Double(index) * M_PI / 180.0
             let vAngle = Double(-45) * 0.25 * M_PI / 180.0
-            var val = NSValue(CATransform3D: transformationToRotateAroundPosition(node.position, radius:radius, horizontalAngle:Float(hAngle), verticalAngle:Float(vAngle)))
+            let val = NSValue(CATransform3D: transformationToRotateAroundPosition(node.position, radius:radius, horizontalAngle:Float(hAngle), verticalAngle:Float(vAngle)))
             animValues.append(val)
         }
         
@@ -265,11 +265,11 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         let hitResults = scnView.hitTest(p, options: nil)
         
         // check that we clicked on at least one object
-        if hitResults?.count > 0 {
+        if hitResults.count > 0 {
             // retrieved the first clicked object
-            let result: AnyObject! = hitResults?[0]
+            let result: AnyObject! = hitResults[0]
             
-            let touchedNode = result.node! as SCNNode
+            //_ = result.node! as SCNNode
             
             // get its material
             let material = result.node!.geometry?.firstMaterial
