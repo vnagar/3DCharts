@@ -45,18 +45,18 @@ public enum Edge : Property {
 
     var attribute: NSLayoutAttribute {
         switch (self) {
-            case let .Top(view): return NSLayoutAttribute.Top
-            case let .Right(view): return NSLayoutAttribute.Right
-            case let .Bottom(view): return NSLayoutAttribute.Bottom
-            case let .Left(view): return NSLayoutAttribute.Left
+            case .Top(_): return NSLayoutAttribute.Top
+            case .Right(_): return NSLayoutAttribute.Right
+            case .Bottom(_): return NSLayoutAttribute.Bottom
+            case .Left(_): return NSLayoutAttribute.Left
 
-            case let .Leading(view): return NSLayoutAttribute.Leading
-            case let .Trailing(view): return NSLayoutAttribute.Trailing
+            case .Leading(_): return NSLayoutAttribute.Leading
+            case .Trailing(_): return NSLayoutAttribute.Trailing
 
-            case let .CenterX(view): return NSLayoutAttribute.CenterX
-            case let .CenterY(view): return NSLayoutAttribute.CenterY
+            case .CenterX(_): return NSLayoutAttribute.CenterX
+            case .CenterY(_): return NSLayoutAttribute.CenterY
 
-            case let .Baseline(view): return NSLayoutAttribute.Baseline
+            case .Baseline(_): return NSLayoutAttribute.LastBaseline
         }
     }
 }

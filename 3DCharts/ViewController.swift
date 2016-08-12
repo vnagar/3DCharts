@@ -67,7 +67,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let sceneViewController = SceneViewController()
+        _ = SceneViewController()
         if(indexPath.row == 0) {
             self.navigationController?.pushViewController(cylinderChartSceneController, animated: false)
         } else if(indexPath.row == 1) {

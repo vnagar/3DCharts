@@ -94,7 +94,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         
         showData()
 
-        let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SceneViewController.handleTap(_:)))
         view.addGestureRecognizer(tap)
     }
     
@@ -127,12 +127,13 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         
         var min:SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
         var max:SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
+        
         base.getBoundingBoxMin(&min, max: &max)
         
         //println("bounds is \(min.x), \(min.y), \(min.z), \(max.x), \(max.y), \(max.z)")
         
         
-        for (var idx = 0; idx < numRows; ++idx) {
+        for idx in 0 ..< numRows {
             let txt = SCNText(string: data.legendForRow(idx), extrusionDepth: 0.0)
             txt.font = UIFont(name: "MarkerFelt-Thin", size: 2.0)
             let txtNode = SCNNode(geometry: txt)
@@ -142,7 +143,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
             node.addChildNode(txtNode)
         }
         
-        for (var idx = 0; idx < numColumns; ++idx) {
+        for idx in 0 ..< numColumns {
             let txt = SCNText(string: data.legendForColumn(idx), extrusionDepth: 0.0)
             txt.font = UIFont(name: "MarkerFelt-Thin", size: 2.0)
             let txtNode = SCNNode(geometry: txt)
@@ -153,8 +154,8 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
             node.addChildNode(txtNode)
         }
 
-        for( var i = 0; i < numRows ; ++i) {
-            for (var j = 0; j < numColumns; j++) {
+        for i in 0 ..< numRows {
+            for j in 0 ..< numColumns {
                 let val = data.valueForIndexPath(row:i, column: j) / 3.0
                 var aNode = SCNNode()
                 if(type == .Cylinder) {
@@ -184,14 +185,14 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         let numColumns = data.numberOfColums()
         
         let i = 0
-        for (var j = 0; j < numColumns; j++) {
+        for j in 0 ..< numColumns {
             let val = data.valueForIndexPath(row:i, column: j)
             total = total + val
         }
         
         var startDeg:Float = 0.0
         var startRad:Float = 0.0
-        for (var j = 0; j < numColumns; j++) {
+        for j in 0 ..< numColumns {
             let val = data.valueForIndexPath(row:i, column: j)
             let pct = val*360.0/total
             startRad = Float(startDeg) * Float(M_PI) / Float(180.0)
@@ -228,7 +229,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         animation.removedOnCompletion = false
         
         var animValues = [NSValue]()
-        for var index = 0; index <= 360; ++index {
+        for var index = 0; index <= 360; index += 1 {
             let hAngle = Double(index) * M_PI / 180.0
             let vAngle = Double(-45) * 0.25 * M_PI / 180.0
             let val = NSValue(CATransform3D: transformationToRotateAroundPosition(node.position, radius:radius, horizontalAngle:Float(hAngle), verticalAngle:Float(vAngle)))
