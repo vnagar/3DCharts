@@ -28,12 +28,12 @@ class OverlayScene : SKScene {
         setup()
     }
     
-    func setup () {
-        self.scaleMode = SKSceneScaleMode.ResizeFill
+    private func setup () {
+        self.scaleMode = SKSceneScaleMode.resizeFill
         
         //add the camera button
         cameraNode = SKSpriteNode(imageNamed:"art.scnassets/video_camera.png")
-        cameraNode.position = CGPointMake(size.width * 0.85, size.height*0.85)
+        cameraNode.position = CGPoint(x: size.width * 0.85, y: size.height*0.85)
         cameraNode.name = "cameraNode"
         cameraNode.xScale = 0.4
         cameraNode.yScale = 0.4
@@ -41,14 +41,14 @@ class OverlayScene : SKScene {
 
     }
     
-    override func didChangeSize(oldSize: CGSize) {
-        cameraNode?.position = CGPointMake(self.frame.size.width * 0.85, self.frame.size.height*0.85)
+    override func didChangeSize(_ oldSize: CGSize) {
+        cameraNode?.position = CGPoint(x: self.frame.size.width * 0.85, y: self.frame.size.height*0.85)
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch:UITouch = touches.first! as UITouch
-        let location:CGPoint = touch.locationInNode(scene!)
-        let node:SKNode = scene!.nodeAtPoint(location)
+        let location:CGPoint = touch.location(in: scene!)
+        let node:SKNode = scene!.atPoint(location)
         if let _ = node.name { // Check if node name is not nil
             // Call closure defined in SceneViewController
             if let handler = cameraButtonHandler {

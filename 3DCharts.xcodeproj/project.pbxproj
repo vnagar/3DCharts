@@ -13,18 +13,6 @@
 		C143598F19A8DCA4000210D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C143598D19A8DCA4000210D6 /* Main.storyboard */; };
 		C143599119A8DCA4000210D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C143599019A8DCA4000210D6 /* Images.xcassets */; };
 		C143599D19A8DCA5000210D6 /* _DChartsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C143599C19A8DCA5000210D6 /* _DChartsTests.swift */; };
-		C14359B419A8DDD1000210D6 /* Coefficients.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359A819A8DDD1000210D6 /* Coefficients.swift */; };
-		C14359B519A8DDD1000210D6 /* Compound.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359A919A8DDD1000210D6 /* Compound.swift */; };
-		C14359B619A8DDD1000210D6 /* Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359AA19A8DDD1000210D6 /* Dimension.swift */; };
-		C14359B719A8DDD1000210D6 /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359AB19A8DDD1000210D6 /* Edge.swift */; };
-		C14359B819A8DDD1000210D6 /* Edges.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359AC19A8DDD1000210D6 /* Edges.swift */; };
-		C14359B919A8DDD1000210D6 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359AD19A8DDD1000210D6 /* Expression.swift */; };
-		C14359BA19A8DDD1000210D6 /* LayoutProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359AE19A8DDD1000210D6 /* LayoutProxy.swift */; };
-		C14359BB19A8DDD1000210D6 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359AF19A8DDD1000210D6 /* Point.swift */; };
-		C14359BC19A8DDD1000210D6 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359B019A8DDD1000210D6 /* Priority.swift */; };
-		C14359BD19A8DDD1000210D6 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359B119A8DDD1000210D6 /* Property.swift */; };
-		C14359BE19A8DDD1000210D6 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359B219A8DDD1000210D6 /* Size.swift */; };
-		C14359BF19A8DDD1000210D6 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359B319A8DDD1000210D6 /* View.swift */; };
 		C14359C319A8E4C1000210D6 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359C219A8E4C1000210D6 /* SceneViewController.swift */; };
 		C14359C519A8EAE1000210D6 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C14359C419A8EAE1000210D6 /* art.scnassets */; };
 		C14359C719A8F84B000210D6 /* SceneViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14359C619A8F84B000210D6 /* SceneViewDataSource.swift */; };
@@ -52,19 +40,6 @@
 		C143599619A8DCA4000210D6 /* 3DChartsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 3DChartsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C143599B19A8DCA4000210D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C143599C19A8DCA5000210D6 /* _DChartsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _DChartsTests.swift; sourceTree = "<group>"; };
-		C14359A719A8DDD1000210D6 /* Cartography.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cartography.h; sourceTree = "<group>"; };
-		C14359A819A8DDD1000210D6 /* Coefficients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coefficients.swift; sourceTree = "<group>"; };
-		C14359A919A8DDD1000210D6 /* Compound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compound.swift; sourceTree = "<group>"; };
-		C14359AA19A8DDD1000210D6 /* Dimension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimension.swift; sourceTree = "<group>"; };
-		C14359AB19A8DDD1000210D6 /* Edge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
-		C14359AC19A8DDD1000210D6 /* Edges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edges.swift; sourceTree = "<group>"; };
-		C14359AD19A8DDD1000210D6 /* Expression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
-		C14359AE19A8DDD1000210D6 /* LayoutProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutProxy.swift; sourceTree = "<group>"; };
-		C14359AF19A8DDD1000210D6 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
-		C14359B019A8DDD1000210D6 /* Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
-		C14359B119A8DDD1000210D6 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
-		C14359B219A8DDD1000210D6 /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
-		C14359B319A8DDD1000210D6 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		C14359C219A8E4C1000210D6 /* SceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneViewController.swift; sourceTree = "<group>"; };
 		C14359C419A8EAE1000210D6 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		C14359C619A8F84B000210D6 /* SceneViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneViewDataSource.swift; sourceTree = "<group>"; };
@@ -118,7 +93,6 @@
 				C143598919A8DCA4000210D6 /* AppDelegate.swift */,
 				C143598B19A8DCA4000210D6 /* ViewController.swift */,
 				C143598D19A8DCA4000210D6 /* Main.storyboard */,
-				C14359A619A8DDD1000210D6 /* Cartography */,
 				C143599019A8DCA4000210D6 /* Images.xcassets */,
 				C143598719A8DCA4000210D6 /* Supporting Files */,
 			);
@@ -148,26 +122,6 @@
 				C143599B19A8DCA4000210D6 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C14359A619A8DDD1000210D6 /* Cartography */ = {
-			isa = PBXGroup;
-			children = (
-				C14359A719A8DDD1000210D6 /* Cartography.h */,
-				C14359A819A8DDD1000210D6 /* Coefficients.swift */,
-				C14359A919A8DDD1000210D6 /* Compound.swift */,
-				C14359AA19A8DDD1000210D6 /* Dimension.swift */,
-				C14359AB19A8DDD1000210D6 /* Edge.swift */,
-				C14359AC19A8DDD1000210D6 /* Edges.swift */,
-				C14359AD19A8DDD1000210D6 /* Expression.swift */,
-				C14359AE19A8DDD1000210D6 /* LayoutProxy.swift */,
-				C14359AF19A8DDD1000210D6 /* Point.swift */,
-				C14359B019A8DDD1000210D6 /* Priority.swift */,
-				C14359B119A8DDD1000210D6 /* Property.swift */,
-				C14359B219A8DDD1000210D6 /* Size.swift */,
-				C14359B319A8DDD1000210D6 /* View.swift */,
-			);
-			path = Cartography;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,20 +231,8 @@
 				C14359C319A8E4C1000210D6 /* SceneViewController.swift in Sources */,
 				C143598C19A8DCA4000210D6 /* ViewController.swift in Sources */,
 				C143598A19A8DCA4000210D6 /* AppDelegate.swift in Sources */,
-				C14359B719A8DDD1000210D6 /* Edge.swift in Sources */,
-				C14359B919A8DDD1000210D6 /* Expression.swift in Sources */,
-				C14359B819A8DDD1000210D6 /* Edges.swift in Sources */,
 				C14359C919A8FCDE000210D6 /* ExampleData.swift in Sources */,
-				C14359B519A8DDD1000210D6 /* Compound.swift in Sources */,
-				C14359BD19A8DDD1000210D6 /* Property.swift in Sources */,
 				C14359C719A8F84B000210D6 /* SceneViewDataSource.swift in Sources */,
-				C14359BB19A8DDD1000210D6 /* Point.swift in Sources */,
-				C14359BC19A8DDD1000210D6 /* Priority.swift in Sources */,
-				C14359B619A8DDD1000210D6 /* Dimension.swift in Sources */,
-				C14359B419A8DDD1000210D6 /* Coefficients.swift in Sources */,
-				C14359BA19A8DDD1000210D6 /* LayoutProxy.swift in Sources */,
-				C14359BF19A8DDD1000210D6 /* View.swift in Sources */,
-				C14359BE19A8DDD1000210D6 /* Size.swift in Sources */,
 				C133B7A019AA396A00477582 /* OverlayScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,11 +358,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = 3DCharts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vivek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -429,12 +372,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = 3DCharts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vivek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -454,7 +398,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vivek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/3DCharts.app/3DCharts";
 			};
 			name = Debug;
@@ -472,7 +416,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vivek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/3DCharts.app/3DCharts";
 			};
 			name = Release;

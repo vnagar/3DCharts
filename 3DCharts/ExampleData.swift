@@ -23,7 +23,7 @@ class ExampleData : SceneViewDataSource {
         return 12
     }
     
-    func legendForRow(row:Int) -> String {
+    func legendForRow(_ row:Int) -> String {
         if (row == 0) {
             return "Microsoft"
         }
@@ -35,7 +35,7 @@ class ExampleData : SceneViewDataSource {
         }
     }
     
-    func legendForColumn(column:Int) -> String {
+    func legendForColumn(_ column:Int) -> String {
         return String(format:"%d", 2001 + column)
     }
     
@@ -43,11 +43,11 @@ class ExampleData : SceneViewDataSource {
         return 150.0
     }
     
-    func valueForIndexPath(row row:Int, column:Int) -> Float {
+    func valueForIndexPath(row:Int, column:Int) -> Float {
         return gValsRevenue[row * 12 + column]
     }
     
-    func colorForIndexPath(row row:Int, column:Int) -> SKColor {
+    func colorForIndexPath(row:Int, column:Int) -> SKColor {
         let val:Float = self.valueForIndexPath(row:row, column:column)
         let max:Float = 150.0
         let value:Float = Float(val/max)

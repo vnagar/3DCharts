@@ -11,9 +11,9 @@ import SceneKit
 protocol SceneViewDataSource {
     func numberOfRows() -> Int
     func numberOfColums() -> Int
-    func legendForRow(row:Int) -> String
-    func legendForColumn(column:Int) -> String
+    func legendForRow(_ row:Int) -> String
+    func legendForColumn(_ column:Int) -> String
     func maxValueForData() -> Float
-    func valueForIndexPath(row row:Int, column:Int) -> Float
-    func colorForIndexPath(row row:Int, column:Int) -> UIColor
+    func valueForIndexPath(row:Int, column:Int) -> Float
+    func colorForIndexPath(row:Int, column:Int) -> UIColor
 }
