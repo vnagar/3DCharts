@@ -169,7 +169,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
             txt.font = UIFont(name: "MarkerFelt-Thin", size: 2.0)
             let txtNode = SCNNode(geometry: txt)
             let posX = min.x - 10.0
-            let posY = min.y + Float(idx+1) * Float(gridSize)
+            let posY = min.y + Float(idx) * Float(gridSize)
             txtNode.position = SCNVector3(x: posX, y: posY, z: 0.0)
             node.addChildNode(txtNode)
         }
