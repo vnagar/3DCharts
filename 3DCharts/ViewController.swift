@@ -39,38 +39,38 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.view.addSubview(tableView)
         
         // Create a bottom space constraint
-        var constraint = NSLayoutConstraint (item: tableView,
-                                             attribute: NSLayoutAttribute.bottom,
-                                             relatedBy: NSLayoutRelation.equal,
+        var constraint = NSLayoutConstraint (item: tableView!,
+                                             attribute: NSLayoutConstraint.Attribute.bottom,
+                                             relatedBy: NSLayoutConstraint.Relation.equal,
                                              toItem: self.view,
-                                             attribute: NSLayoutAttribute.bottom,
+                                             attribute: NSLayoutConstraint.Attribute.bottom,
                                              multiplier: 1,
                                              constant: 0)
         self.view.addConstraint(constraint)
         // Create a top space constraint
-        constraint = NSLayoutConstraint (item: tableView,
-                                         attribute: NSLayoutAttribute.top,
-                                         relatedBy: NSLayoutRelation.equal,
+        constraint = NSLayoutConstraint (item: tableView!,
+                                         attribute: NSLayoutConstraint.Attribute.top,
+                                         relatedBy: NSLayoutConstraint.Relation.equal,
                                          toItem: self.view,
-                                         attribute: NSLayoutAttribute.top,
+                                         attribute: NSLayoutConstraint.Attribute.top,
                                          multiplier: 1,
                                          constant: 0)
         self.view.addConstraint(constraint)
         // Create a right space constraint
-        constraint = NSLayoutConstraint (item: tableView,
-                                         attribute: NSLayoutAttribute.right,
-                                         relatedBy: NSLayoutRelation.equal,
+        constraint = NSLayoutConstraint (item: tableView!,
+                                         attribute: NSLayoutConstraint.Attribute.right,
+                                         relatedBy: NSLayoutConstraint.Relation.equal,
                                          toItem: self.view,
-                                         attribute: NSLayoutAttribute.right,
+                                         attribute: NSLayoutConstraint.Attribute.right,
                                          multiplier: 1,
                                          constant: 0)
         self.view.addConstraint(constraint)
         // Create a left space constraint
-        constraint = NSLayoutConstraint (item: tableView,
-                                         attribute: NSLayoutAttribute.left,
-                                         relatedBy: NSLayoutRelation.equal,
+        constraint = NSLayoutConstraint (item: tableView!,
+                                         attribute: NSLayoutConstraint.Attribute.left,
+                                         relatedBy: NSLayoutConstraint.Relation.equal,
                                          toItem: self.view,
-                                         attribute: NSLayoutAttribute.left,
+                                         attribute: NSLayoutConstraint.Attribute.left,
                                          multiplier: 1,
                                          constant: 0)
         self.view.addConstraint(constraint)
@@ -87,9 +87,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let CellIdentifier = "CellIdentifier"
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: CellIdentifier)
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: CellIdentifier)
         
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         
         let cellText = chartTypes[(indexPath as NSIndexPath).row]
         cell.textLabel!.text = cellText
