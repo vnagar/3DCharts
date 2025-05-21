@@ -1,6 +1,6 @@
 # 3DCharts
 
-A Swift project demonstrating the creation of interactive 3D charts using SceneKit. This project showcases how to create beautiful and interactive 3D cylindrical bars, cube bars, and pie charts with modern Swift.
+A Swift project demonstrating the creation of interactive 3D charts using SceneKit. This project showcases how to create beautiful and interactive 3D cylindrical bars, cube bars, and pie charts with modern Swift code.
 
 ## Features
 
@@ -118,23 +118,13 @@ let gValsRevenue:[Float] = [
 - Pan across the visualization
 - Automatic camera positioning
 
-## Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
 - Created by Vivek Nagar
 - Built with SceneKit and Swift
-- Example data features historical revenue figures from Microsoft, Apple, and Google
+- Example data features test data.
 
 ## Contact
 
