@@ -162,8 +162,22 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         
         (min, _) = base.boundingBox
         
-        //println("bounds is \(min.x), \(min.y), \(min.z), \(max.x), \(max.y), \(max.z)")
+        // Add Y-axis label (Revenue)
+        let revenueLabel = SCNText(string: NSLocalizedString("Revenue (Billion USD)", comment: "Y-axis label"), extrusionDepth: 0.0)
+        revenueLabel.font = UIFont(name: "MarkerFelt-Thin", size: 2.0)
+        let revenueLabelNode = SCNNode(geometry: revenueLabel)
+        revenueLabelNode.position = SCNVector3(x: min.x - 15.0, y: min.y + Float(height/2), z: 0.0)
+        revenueLabelNode.rotation = SCNVector4(x: 0, y: 0, z: 1, w: Float(-Double.pi / 2.0))
+        node.addChildNode(revenueLabelNode)
         
+        // Add X-axis label (Year)
+        let yearLabel = SCNText(string: NSLocalizedString("Year", comment: "X-axis label"), extrusionDepth: 0.0)
+        yearLabel.font = UIFont(name: "MarkerFelt-Thin", size: 2.0)
+        let yearLabelNode = SCNNode(geometry: yearLabel)
+        yearLabelNode.position = SCNVector3(x: min.x + Float(width/2), y: min.y - 5.0, z: 0.0)
+        node.addChildNode(yearLabelNode)
+        
+        // Add company names
         for idx in 0 ..< numRows {
             let txt = SCNText(string: data.legendForRow(idx), extrusionDepth: 0.0)
             txt.font = UIFont(name: "MarkerFelt-Thin", size: 2.0)
@@ -174,6 +188,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
             node.addChildNode(txtNode)
         }
         
+        // Add years
         for idx in 0 ..< numColumns {
             let txt = SCNText(string: data.legendForColumn(idx), extrusionDepth: 0.0)
             txt.font = UIFont(name: "MarkerFelt-Thin", size: 2.0)

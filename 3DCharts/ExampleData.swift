@@ -25,18 +25,19 @@ class ExampleData : SceneViewDataSource {
     
     func legendForRow(_ row:Int) -> String {
         if (row == 0) {
-            return "Microsoft"
+            return NSLocalizedString("Microsoft", comment: "Company name Microsoft")
         }
         else if (row == 1) {
-            return "Apple"
+            return NSLocalizedString("Apple", comment: "Company name Apple")
         }
         else {
-            return "Google"
+            return NSLocalizedString("Google", comment: "Company name Google")
         }
     }
     
     func legendForColumn(_ column:Int) -> String {
-        return String(format:"%d", 2001 + column)
+        let year = 2001 + column
+        return NSLocalizedString(String(year), comment: "Year \(year)")
     }
     
     func maxValueForData() -> Float {
@@ -56,6 +57,5 @@ class ExampleData : SceneViewDataSource {
         
         let color = UIColor(hue: CGFloat(hue), saturation: CGFloat(sat), brightness: 1.0, alpha: 1.0)
         return color;
-
     }
 }

@@ -2,60 +2,69 @@
 //  OverlayScene.swift
 //  3DCharts
 //
-//  Created by Vivek Nagar on 8/24/14.
+//  Created by Vivek Nagar on 8/23/14.
 //  Copyright (c) 2014 Vivek Nagar. All rights reserved.
 //
 
 import SpriteKit
 
-class OverlayScene : SKScene {
-    // closure for handling camera button presses
-    var cameraButtonHandler : (() -> ())?
-    var cameraNode:SKSpriteNode!
-    
-    override init() {
-        super.init()
-        setup()
-    }
+class OverlayScene: SKScene {
+    var cameraButtonHandler: (() -> Void)?
     
     override init(size: CGSize) {
         super.init(size: size)
-        setup()
+        
+        self.scaleMode = .aspectFill
+        self.backgroundColor = .clear
+        
+        // Create camera button
+        /*
+        let image = UIImage(named: "video_camera")
+        let texture = SKTexture(image: image!)
+        let cameraButton = SKSpriteNode(texture: texture)
+         */
+        let cameraButton = SKSpriteNode(imageNamed: "video_camera")
+        cameraButton.name = "cameraButton"
+        cameraButton.position = CGPoint(x: size.width - 50, y: size.height - 100)
+        cameraButton.isUserInteractionEnabled = true
+        
+        // Add localized tooltip
+        let tooltip = SKLabelNode(text: NSLocalizedString("Camera", comment: "Camera button tooltip"))
+        tooltip.fontSize = 12
+        tooltip.position = CGPoint(x: 0, y: -30)
+        cameraButton.addChild(tooltip)
+        
+        self.addChild(cameraButton)
+        
+        /*
+        // Create reset view button
+        let resetButton = SKSpriteNode(imageNamed: "")
+        resetButton.name = "resetButton"
+        resetButton.position = CGPoint(x: size.width - 50, y: size.height - 100)
+        resetButton.isUserInteractionEnabled = true
+        
+        // Add localized tooltip
+        let resetTooltip = SKLabelNode(text: NSLocalizedString("Reset View", comment: "Reset view button tooltip"))
+        resetTooltip.fontSize = 12
+        resetTooltip.position = CGPoint(x: 0, y: -20)
+        resetButton.addChild(resetTooltip)
+        
+        self.addChild(resetButton)
+         */
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup () {
-        self.scaleMode = SKSceneScaleMode.resizeFill
-        
-        //add the camera button
-        cameraNode = SKSpriteNode(imageNamed:"art.scnassets/video_camera.png")
-        cameraNode.position = CGPoint(x: size.width * 0.85, y: size.height*0.85)
-        cameraNode.name = "cameraNode"
-        cameraNode.xScale = 0.4
-        cameraNode.yScale = 0.4
-        self.addChild(cameraNode)
-
-    }
-    
-    override func didChangeSize(_ oldSize: CGSize) {
-        cameraNode?.position = CGPoint(x: self.frame.size.width * 0.85, y: self.frame.size.height*0.85)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch:UITouch = touches.first! as UITouch
-        let location:CGPoint = touch.location(in: scene!)
-        let node:SKNode = scene!.atPoint(location)
-        if let _ = node.name { // Check if node name is not nil
-            // Call closure defined in SceneViewController
-            if let handler = cameraButtonHandler {
-                handler()
+        for touch in touches {
+            let location = touch.location(in: self)
+            let node = self.atPoint(location)
+            
+            if node.name == "cameraButton" {
+                cameraButtonHandler?()
             }
         }
     }
-        
-
 }
