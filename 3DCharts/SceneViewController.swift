@@ -164,23 +164,23 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         
         // Add Y-axis label (Revenue)
         let revenueLabel = SCNText(string: NSLocalizedString("Revenue (Billion USD)", comment: "Y-axis label"), extrusionDepth: 0.0)
-        revenueLabel.font = UIFont(name: "MarkerFelt-Thin", size: 2.0)
+        revenueLabel.font = UIFont(name: "MarkerFelt-Thin", size: 1.5)
         let revenueLabelNode = SCNNode(geometry: revenueLabel)
-        revenueLabelNode.position = SCNVector3(x: min.x - 15.0, y: min.y + Float(height/2), z: 0.0)
+        revenueLabelNode.position = SCNVector3(x: min.x - 15.0, y: min.y + Float(height), z: 0.0) // ---
         revenueLabelNode.rotation = SCNVector4(x: 0, y: 0, z: 1, w: Float(-Double.pi / 2.0))
         node.addChildNode(revenueLabelNode)
         
         // Add X-axis label (Year)
         let yearLabel = SCNText(string: NSLocalizedString("Year", comment: "X-axis label"), extrusionDepth: 0.0)
-        yearLabel.font = UIFont(name: "MarkerFelt-Thin", size: 2.0)
+        yearLabel.font = UIFont(name: "MarkerFelt-Thin", size: 1.5)
         let yearLabelNode = SCNNode(geometry: yearLabel)
-        yearLabelNode.position = SCNVector3(x: min.x + Float(width/2), y: min.y - 5.0, z: 0.0)
+        yearLabelNode.position = SCNVector3(x: min.x + Float(width/2), y: min.y - 10.0, z: 0.0)
         node.addChildNode(yearLabelNode)
         
         // Add company names
         for idx in 0 ..< numRows {
             let txt = SCNText(string: data.legendForRow(idx), extrusionDepth: 0.0)
-            txt.font = UIFont(name: "MarkerFelt-Thin", size: 2.0)
+            txt.font = UIFont(name: "MarkerFelt-Thin", size: 1.5)
             let txtNode = SCNNode(geometry: txt)
             let posX = min.x - 10.0
             let posY = min.y + Float(idx) * Float(gridSize)
@@ -191,7 +191,7 @@ class SceneViewController : UIViewController, SCNSceneRendererDelegate {
         // Add years
         for idx in 0 ..< numColumns {
             let txt = SCNText(string: data.legendForColumn(idx), extrusionDepth: 0.0)
-            txt.font = UIFont(name: "MarkerFelt-Thin", size: 2.0)
+            txt.font = UIFont(name: "MarkerFelt-Thin", size: 1.5)
             let txtNode = SCNNode(geometry: txt)
             let posX = min.x + Float(idx+1) * Float(gridSize)
             let posY = min.y - 2.0
